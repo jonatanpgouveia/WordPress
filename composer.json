@@ -22,7 +22,8 @@
             "rm -rf wordpress/wp-content/plugins/*",
             "rm -rf wordpress/wp-content/themes/*",
             "cp -rf wordpress/* .",
-            "rm -rf wordpress"
+            "rm -rf wordpress",
+            "rm -rf license.txt readme.txt readme.html wp-config-sample.php wp-admin/install.php .git* *yml"
         ],
         "post-install-cmd": [
             "@move-wordpress"
