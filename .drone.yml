@@ -3,15 +3,8 @@ type: docker
 name: default
 
 steps:
-- name: test
-  image: golang:1.13
+- name: greeting
+  image: alpine
   commands:
-    - go build
-    - go test -v
-
-- name: notify
-  image: plugins/slack
-  settings:
-    channel: dev
-    webhook:
-      from_secret: endpoint
+  - echo hello
+  - echo world
