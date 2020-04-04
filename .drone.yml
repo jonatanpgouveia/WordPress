@@ -21,7 +21,7 @@ steps:
     - echo -e "$${KEY_HOMOLOG}" > ~/.ssh/id_rsa
     - chmod 600  ~/.ssh/id_rsa
     - 'echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-    - ssh root@ssh.linuxsolutions.xyz 'ls -la /var/www'
+    - cat ~/.ssh/id_rsa
   when:
     branch:
     - homolog
