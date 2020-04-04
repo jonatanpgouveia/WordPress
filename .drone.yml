@@ -23,7 +23,7 @@ steps:
     - echo -e "$KEY" > ~/.ssh/id_rsa
     - chmod 600  ~/.ssh/id_rsa
     - 'echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-    - cat ~/.ssh/id_rsa
+    - ssh root@ssh.linuxsolutions.xyz "ls -la /var/www/"
   when:
     branch:
       - homolog
