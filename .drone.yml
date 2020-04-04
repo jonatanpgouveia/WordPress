@@ -1,10 +1,10 @@
 kind: pipeline
 type: docker
-name: default
+name: WordPress
 
 steps:
-- name: greeting
-  image: alpine
+- name: Install
+  image: composer:1.10.1
   commands:
-  - echo hello
-  - echo world
+    - composer install
+    - ls -la
