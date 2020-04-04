@@ -8,14 +8,27 @@
         }
     ],
     "require": {
-        "aws/aws-sdk-php":"*",
-        "wpackagist-plugin/akismet":"dev-trunk",
-        "wpackagist-plugin/wordpress-seo":">=7.0.2",
+        "wpackagist-plugin/nginx-helper":"2.2.1",
         "wpackagist-theme/hueman":"*"
     },
     "autoload": {
         "psr-0": {
             "Acme": "src/"
         }
+    },
+    "scripts": {
+        "move-wordpress": [
+            "rm -rf wordpress/wp-content/plugins/*",
+            "rm -rf wordpress/wp-content/themes/*",
+            "cp -rf wordpress/* .",
+            "rm -rf wordpress"
+        ],
+        "post-install-cmd": [
+            "@move-wordpress"
+        ],
+        "post-update-cmd": [
+            "@move-wordpress"
+        ]
     }
+
 }
