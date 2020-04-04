@@ -14,7 +14,6 @@ steps:
 
 - name: DeployHomolog
   image: alpine:latest
-  secrets: [ KEY_HOMOLOG ]
   commands:
     - apk update && apk upgrade && apk add --no-cache rsync git openssh-client
     - mkdir -p ~/.ssh
@@ -22,6 +21,9 @@ steps:
     - chmod 600  ~/.ssh/id_rsa
     - 'echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - cat ~/.ssh/id_rsa
+  environment:
+    HOMOLOG_KEY:
+      from_secret: HOMOLOG_KEY
   when:
     branch:
     - homolog
