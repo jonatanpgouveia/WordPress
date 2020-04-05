@@ -1,6 +1,6 @@
-# WordPress with Deploy Drone CI
+# WordPress with Deploy Drone CI in GitHub
 
-Projeto para teste de CI/CD usando [DroneCI](https://drone-github.linuxsolutions.xyz/).
+Projeto para WordPress de CI/CD usando [DroneCI](https://drone-github.linuxsolutions.xyz/).
 
 ## Resumo
 
