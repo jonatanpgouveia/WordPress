@@ -17,13 +17,14 @@ steps:
   environment:
     KEY:
       from_secret: homolog_key
+    PROJECT: wordpress
   commands:
     - apk update && apk upgrade && apk add --no-cache rsync openssh-client
     - mkdir -p ~/.ssh
     - echo -e "$KEY" > ~/.ssh/id_rsa
     - chmod 600  ~/.ssh/id_rsa
     - 'echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-    - ssh root@ssh.linuxsolutions.xyz "ls -la /var/www/"
+    - rsync -ahrvz --delete-excluded --exclude='.git/' --exclude='.gitlab-ci.yml' --exclude='wp-content/uploads/' --exclude='.gitignore' --chmod="D755,F644" --chown=www-data:www-data -e "ssh -oStrictHostKeyChecking=no " --rsync-path="sudo rsync" * debian@ssh.linuxsolutions.xyz:/var/www/$PROJECT.linuxsolutions.xyz/htdocs
   when:
     branch:
       - homolog
