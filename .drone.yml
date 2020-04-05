@@ -12,6 +12,20 @@ steps:
     - master
     - homolog
 
+- name: Test
+  image: composer:1.10.1
+  commands:
+    - apk add libxslt-dev
+    - docker-php-ext-install xsl
+    - composer install
+    - phpdbg -qrr ./vendor/bin/phpunit
+  when:
+    branch:
+      - master
+      - homolog
+    status:
+      - success
+
 - name: DeployHomolog
   image: alpine:latest
   environment:
