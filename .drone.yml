@@ -12,30 +12,6 @@ steps:
     - master
     - homolog
 
-- name: Lint
-  image: composer:1.10.1
-  commands:
-    - apk add libxslt-dev
-    - docker-php-ext-install xsl
-    - composer install
-    - composer lint
-  when:
-    branch:
-      - master
-      - homolog
-
-- name: Test
-  image: composer:1.10.1
-  commands:
-    - apk add libxslt-dev
-    - docker-php-ext-install xsl
-    - composer install
-    - phpdbg -qrr ./vendor/bin/phpunit
-  when:
-    branch:
-      - master
-      - homolog
-
 - name: DeployHomolog
   image: alpine:latest
   environment:
