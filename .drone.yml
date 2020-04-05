@@ -12,6 +12,20 @@ steps:
     - master
     - homolog
 
+- name: Lint
+  image: composer:1.10.1
+  commands:
+    - apk add libxslt-dev
+    - docker-php-ext-install xsl
+    - composer install
+    - composer lint
+  when:
+    branch:
+      - master
+      - homolog
+    status:
+      - failure
+
 - name: Test
   image: composer:1.10.1
   commands:
@@ -24,7 +38,7 @@ steps:
       - master
       - homolog
     status:
-      - success
+      - failure
 
 - name: DeployHomolog
   image: alpine:latest
