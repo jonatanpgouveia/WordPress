@@ -1,5 +1,9 @@
 # WordPress with Deploy Drone CI in GitHub
 
+[![N|Solid](https://linuxsolutions.xyz/linuxSolution.jpeg)](https://linuxsolutions.xyz)
+
+[![Build Status](https://droneci-github.linuxsolutions.xyz/api/badges/jonatanpgouveia/WordPress/status.svg)](https://droneci-github.linuxsolutions.xyz/jonatanpgouveia/WordPress)
+
 Projeto para WordPress de CI/CD usando [DroneCI](https://drone-github.linuxsolutions.xyz/).
 
 ## Resumo
@@ -88,5 +92,3 @@ steps:
 ```
  git rm -r --cache .
 ```
-
-[![Build Status](https://droneci-github.linuxsolutions.xyz/api/badges/jonatanpgouveia/WordPress/status.svg)](https://droneci-github.linuxsolutions.xyz/jonatanpgouveia/WordPress)
