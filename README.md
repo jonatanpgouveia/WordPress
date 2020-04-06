@@ -88,3 +88,5 @@ steps:
 ```
  git rm -r --cache .
 ```
+
+[![Build Status](https://droneci-github.linuxsolutions.xyz/api/badges/jonatanpgouveia/WordPress/status.svg)](https://droneci-github.linuxsolutions.xyz/jonatanpgouveia/WordPress)
